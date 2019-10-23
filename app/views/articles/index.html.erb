@@ -1,0 +1,20 @@
+<h1>Articles#index</h1>
+
+<div id="container">
+  <h1>Here are all the articles</h1>
+
+  <% @tasks.each do |task| %>
+    <% if task.completed %>
+    <h2> <span id="icon"> &#10004 </span> <%= link_to task.title, task_path(task), :class => "new-task" %></h2>
+    <p><%= task.details %></p>
+    <hr>
+    <% else %>
+    <h2> <span id="icon"> &#10008</span> <%= link_to task.title, task_path(task),:class => "new-task"  %></h2>
+    <p><%= task.details %></p>
+    <% end %>
+  <% end %>
+
+  <div id="btn">
+  <div id="links"> <%= link_to "Create a task", new_task_path, :class => "new-task" %> </div>
+  </div>
+</div>
